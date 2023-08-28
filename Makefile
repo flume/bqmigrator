@@ -41,4 +41,4 @@ tag: validate-tag-arg
 	git-chglog -o CHANGELOG.md
 	git push origin $(v)
 	git commit -am "Update CHANGELOG.md"
-	git push origin master
+	git push master
