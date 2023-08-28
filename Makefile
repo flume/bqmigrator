@@ -37,5 +37,8 @@ endif
 #    ex: make tag v=v0.1.0
 tag: validate-tag-arg
 	@echo "creating tag $(v)"
-	git tag $(v)
+	git tag -a $(v) -m "Version $(v)"
+	git-chglog -o CHANGELOG.md
 	git push origin $(v)
+	git commit -am "Update CHANGELOG.md"
+	git push origin master
