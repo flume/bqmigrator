@@ -1,6 +1,6 @@
-module github.com/flume/bq-migrator
+module github.com/flume/bqmigrator
 
-go 1.21.0
+go 1.21
 
 require (
 	cloud.google.com/go/bigquery v1.54.0

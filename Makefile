@@ -38,4 +38,4 @@ endif
 tag: validate-tag-arg
 	@echo "creating tag $(v)"
 	git tag $(v)
-	git push origin/main $(v)
+	git push origin $(v)
