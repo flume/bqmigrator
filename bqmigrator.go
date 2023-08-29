@@ -12,7 +12,7 @@ import (
 
 type bq interface {
 	GetClient() *bigquery.Client
-	Query(ctx context.Context, query string) (RowIterator, error)
+	Query(ctx context.Context, query string) (rowIterator, error)
 	CreateDataset(ctx context.Context, dataset string) error
 	CreateTable(ctx context.Context, dataset, table string, schema bigquery.Schema) (exists bool, err error)
 	CopyTable(ctx context.Context, dataset, table, copy string) error

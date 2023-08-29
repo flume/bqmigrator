@@ -28,13 +28,13 @@ func (bq *bqclient) GetClient() *bigquery.Client {
 	return bq.client
 }
 
-func (bq *bqclient) Query(ctx context.Context, query string) (RowIterator, error) {
+func (bq *bqclient) Query(ctx context.Context, query string) (rowIterator, error) {
 	q := bq.client.Query(query)
 	iter, err := q.Read(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("querying: %v", err)
 	}
-	return &RowIteratorWrapper{RowIterator: iter}, nil
+	return &rowIteratorWrapper{RowIterator: iter}, nil
 }
 
 func (bq *bqclient) CreateDataset(ctx context.Context, name string) error {
@@ -211,19 +211,19 @@ func isAlreadyExistsError(err error) bool {
 	return false
 }
 
-type RowIteratorWrapper struct {
+type rowIteratorWrapper struct {
 	RowIterator *bigquery.RowIterator
 }
 
-func (r *RowIteratorWrapper) Next(dst any) error {
+func (r *rowIteratorWrapper) Next(dst any) error {
 	return r.RowIterator.Next(dst)
 }
 
-func (r *RowIteratorWrapper) TotalRows() int {
+func (r *rowIteratorWrapper) TotalRows() int {
 	return int(r.RowIterator.TotalRows)
 }
 
-type RowIterator interface {
+type rowIterator interface {
 	Next(dst any) error
 	TotalRows() int
 }
