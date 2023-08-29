@@ -14,7 +14,7 @@ options:
        feat: Features
        fix: Bug Fixes
   header:
-    pattern: "^(\\w*)\\:\\s(.*)$"
+    pattern: "^(feat|fix|chore)\\:\\s(.*)$"
     pattern_maps:
       - Type
       - Subject
