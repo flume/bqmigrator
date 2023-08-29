@@ -243,7 +243,7 @@ func (m *Migrator) insertMigrations(ctx context.Context, migration Migration) er
 		migrationInsertQuery,
 		fullTableName(m.dataset, m.table),
 		migration.Name,
-		getDescriptionString(migration),
+		migration.Description,
 		getDatasetString(migration.Target),
 	)
 

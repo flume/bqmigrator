@@ -37,11 +37,6 @@ func getDatasetString(target Target) string {
 	return fmt.Sprintf("[%s]", strings.Join(datasets, ", "))
 }
 
-func getDescriptionString(migration Migration) string {
-	description := strings.Trim(strings.Trim(strconv.Quote(migration.Description), "\""), "\\n")
-	return description
-}
-
 func tableCopyName(dataset string) string {
 	return fmt.Sprintf("%s_copy", dataset)
 }
