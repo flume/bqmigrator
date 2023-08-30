@@ -22,16 +22,6 @@ lint:
 test:
 	go test ./...
 
-validate-tag-arg:
-ifeq ("", "$(v)")
-	@echo "version arg (v) must be used with the 'tag' target"
-	@exit 1;
-endif
-ifneq ("v", "$(shell echo $(v) | head -c 1)")
-	@echo "version arg (v) must begin with v"
-	@exit 1;
-endif
-
 tag:
-	@echo "creating tag $(v)"
-	bash ./scripts/tag.sh $(v)
+	@echo "creating tag"
+	bash ./scripts/tag.sh
