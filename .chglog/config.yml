@@ -2,17 +2,19 @@ style: github
 template: CHANGELOG.tpl.md
 info:
   title: CHANGELOG
-  repository_url: https://github.com/flume/bq-migrator
+  repository_url: https://github.com/flume/bqmigrator
 options:
   commits:
      filters:
        Type:
          - feat
          - fix
+         - chore
   commit_groups:
      title_maps:
        feat: Features
        fix: Bug Fixes
+       chore: Chores
   header:
     pattern: "^(feat|fix|chore)\\:\\s(.*)$"
     pattern_maps:

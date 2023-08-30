@@ -32,13 +32,6 @@ ifneq ("v", "$(shell echo $(v) | head -c 1)")
 	@exit 1;
 endif
 
-# tag:
-#    Create and push tag to origin
-#    ex: make tag v=v0.1.0
-tag: validate-tag-arg
+tag:
 	@echo "creating tag $(v)"
-	git tag -a $(v) -m "Version $(v)"
-	git-chglog -o CHANGELOG.md
-	git push origin $(v)
-	git commit -am "Update CHANGELOG.md"
-	git push origin main
+	bash ./scripts/tag.sh $(v)
