@@ -77,6 +77,9 @@ func (m *Migrator) Migrate(ctx context.Context) (err error) {
 			fmt.Printf("%s already run\n", migration.Name)
 			continue
 		}
+		if migration.Run == nil {
+			return fmt.Errorf("migration %s has no run function", migration.Name)
+		}
 		err = m.runMigration(ctx, migration)
 		if err != nil {
 			return fmt.Errorf("running migration %s: %v", migration.Name, err)
@@ -100,14 +103,18 @@ func (m *Migrator) getOrderedMigrations() []Migration {
 }
 
 func (m *Migrator) runMigration(ctx context.Context, migration Migration) (err error) {
-	// Run migration setup
-	fmt.Printf("Running migration setup: %s\n", migration.Name)
-	err = migration.Setup(ctx, m.bq.GetClient(), &migration)
-	if err != nil {
-		return fmt.Errorf("running migration setup: %v", err)
+	if migration.Setup != nil {
+		// Run migration setup
+		fmt.Printf("Running migration setup: %s\n", migration.Name)
+		err = migration.Setup(ctx, m.bq.GetClient(), &migration)
+		if err != nil {
+			return fmt.Errorf("running migration setup: %v", err)
+		}
+	} else {
+		fmt.Printf("Skipping migration setup: %s\n", migration.Name)
 	}
 
-	// Copy tables incase something goes wrong
+	// Copy tables in case something goes wrong
 	fmt.Println("Creating copies of tables")
 	err = m.copyTables(ctx, migration)
 	if err != nil {

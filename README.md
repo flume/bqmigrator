@@ -16,7 +16,7 @@ functionalities of the package include:
   tracks the latest completed migration and runs only the new ones.
 
 - **Data Safety**: Before applying a migration, BQMigrator creates copies of the relevant tables. In case of migration
-  failure, the original state can be restored.
+  failure, the original state will be restored.
 
 ## Installation
 
@@ -90,7 +90,7 @@ To utilize BQMigrator in your project, follow these steps:
             return nil
          },
          Run: func(ctx context.Context, bqclient *bq.Client, migration bqmigrator.Migration) error {
-            // Do the migratione here
+            // Do the migration here
             // Your bigquery client is passed in so you can run queries, update tables, or change datasets, really anything
             return nil
          },
