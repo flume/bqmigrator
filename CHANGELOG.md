@@ -2,6 +2,12 @@
 ## [Unreleased]
 
 
+<a name="v0.1.3"></a>
+## [v0.1.3] - 2023-08-30
+### Bug Fixes
+- updated tag and changelog script for better automation
+
+
 <a name="v0.1.2"></a>
 ## [v0.1.2] - 2023-08-29
 ### Bug Fixes
@@ -14,6 +20,10 @@
 - bad description cleaning
 - remove exported row iterator
 
+### Chores
+- update makefile
+- updates to CI
+
 
 <a name="v0.1.0"></a>
 ## [v0.1.0] - 2023-08-28
@@ -25,7 +35,8 @@
 <a name="v0.0.0"></a>
 ## v0.0.0 - 2023-08-28
 
-[Unreleased]: https://github.com/flume/bq-migrator/compare/v0.1.2...HEAD
-[v0.1.2]: https://github.com/flume/bq-migrator/compare/v0.1.1...v0.1.2
-[v0.1.1]: https://github.com/flume/bq-migrator/compare/v0.1.0...v0.1.1
-[v0.1.0]: https://github.com/flume/bq-migrator/compare/v0.0.0...v0.1.0
+[Unreleased]: https://github.com/flume/bqmigrator/compare/v0.1.3...HEAD
+[v0.1.3]: https://github.com/flume/bqmigrator/compare/v0.1.2...v0.1.3
+[v0.1.2]: https://github.com/flume/bqmigrator/compare/v0.1.1...v0.1.2
+[v0.1.1]: https://github.com/flume/bqmigrator/compare/v0.1.0...v0.1.1
+[v0.1.0]: https://github.com/flume/bqmigrator/compare/v0.0.0...v0.1.0
