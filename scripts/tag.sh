@@ -44,7 +44,7 @@ if [[ $V_PREFIX == true ]]; then
 fi
 echo "Next tag: $NEXT_TAG"
 
-git tag -a "$NEXT_TAG" -m "$(git log "$(git describe --tags --abbrev=0)"..HEAD --oneline)"
+git tag -a "$NEXT_TAG" -m "$NEXT_TAG"
 git-chglog -o CHANGELOG.md
 git push origin "$NEXT_TAG"
 git commit -m "Update CHANGELOG.md" CHANGELOG.md
