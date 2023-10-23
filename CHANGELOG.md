@@ -3,8 +3,10 @@
 
 
 <a name="v0.1.4"></a>
-## [v0.1.4] - 2023-08-30
+## [v0.1.4] - 2023-10-23
 ### Bug Fixes
+- upgrade dependencies for http2 vulnerability
+- revert commit message in tag message
 - Put commits in tag message
 
 
