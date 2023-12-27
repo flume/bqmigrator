@@ -21,7 +21,7 @@ FIXES=$(git log "$(git describe --tags --abbrev=0)"..HEAD --oneline --grep='fix:
 CHORES=$(git log "$(git describe --tags --abbrev=0)"..HEAD --oneline --grep='chore:')
 
 if [[ -z "$FEATURES" && -z "$FIXES" && -z "$CHORES" ]]; then
-  echo "No changes since last tag, skipping changelog generation"
+  echo "No changes since last tag"
   exit 0
 fi
 
@@ -45,7 +45,4 @@ fi
 echo "Next tag: $NEXT_TAG"
 
 git tag -a "$NEXT_TAG" -m "$NEXT_TAG"
-git-chglog -o CHANGELOG.md
 git push origin "$NEXT_TAG"
-git commit -m "Update CHANGELOG.md" CHANGELOG.md
-git push origin main
