@@ -39,7 +39,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.24'
+          go-version: '1.25'
       - name: Checkout
         uses: actions/checkout@v4
       - uses: deepakputhraya/action-pr-title@v1.0.2
