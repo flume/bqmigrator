@@ -20,7 +20,7 @@ jobs:
           cache: true
           cache-dependency-path: |
             go.sum
-          go-version: "1.24"
+          go-version: "1.25"
 
       - name: Test
         run: make test
@@ -38,12 +38,12 @@ jobs:
           cache: true
           cache-dependency-path: |
             go.sum
-          go-version: "1.24"
+          go-version: "1.25"
 
       - name: GoLang CI Lint
         uses: golangci/golangci-lint-action@v7
         with:
-          version: v2.0
+          version: v2.5.0
           args: --timeout 10m0s
 
   formatting:
@@ -59,7 +59,7 @@ jobs:
           cache: true
           cache-dependency-path: |
             go.sum
-          go-version: "1.24"
+          go-version: "1.25"
 
       - name: Format
         run: |
